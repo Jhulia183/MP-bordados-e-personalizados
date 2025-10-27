@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copo Térmico</title>
+<link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+<header>
+  <div class="overlay"></div>
+  <div class="header-content">
+    <div class="logo">
+      <a href="site.html"><img src="logo.png" alt="Mega Print" class="logo-img"></a>
+    </div>
+    <div class="center-content">
+      <h1>MP Bordados & Personalizados</h1>
+      <nav class="nav-links">
+        <a href="site.html">Início</a>
+        <a href="site.html">Produtos</a>
+      </nav>
+      <div class="menu-toggle">&#9776;</div>
+    </div>
+  </div>
+</header>
+
+<main class="produto-detalhe">
+  <div class="produto-galeria">
+    <div class="zoom-container">
+      <img id="foto-principal" src="Copo-Termico branca.jpg" alt="Produto" class="principal">
+      <div id="zoom-lente"></div>
+    </div>
+    <div class="miniaturas">
+      
+      <img src="Copo-Termico branca.jpg" alt="Mini 2" onclick="trocarFoto(this)">
+      <img src="Copo-Termico preta.jpg" alt="Mini 3" onclick="trocarFoto(this)">
+      <img src="Copo-Termico rosa.jpg" alt="Mini 4" onclick="trocarFoto(this)">
+      <img src="Copo-Termico verde.jpg" alt="Mini 5" onclick="trocarFoto(this)">
+    </div>
+  </div>
+
+  <div class="produto-info">
+    <h1>Copo Térmico 500ml Personalizado</h1>
+    <h4>Características</h4>
+    <p>Copo térmico de inox com capacidade 500ml, material livre de BPA. Contém tampa com abridor. </p> <h5>Personalização a Laser.</h5>
+    <div class="preco" id="preco">R$ 54,99</div>
+
+    <form id="form-compra" data-produto="Copo Térmico 500ml Personalizado">
+      <label for="cor">Escolha a cor:</label>
+      <select id="cor" name="cor">
+        <option value="Branca">Branca</option>
+        <option value="Preta">Preta</option>
+        <option value="Verde">Verde</option>
+        <option value="Rosa">Rosa</option>
+      </select>
+
+      <label for="obs">Nos conte sua ideia!</label>
+      <textarea id="obs" name="obs" placeholder="Nos conte a sua ideia!"></textarea>
+
+      <button type="submit" class="btn">Comprar Agora</button>
+    </form>
+  </div>
+</main>
+
+<a href="https://wa.me/5527997196844" target="_blank" class="whatsapp-float">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<script>
+// Funções JS integradas
+
+function trocarFoto(elemento) {
+  const principal = document.getElementById("foto-principal");
+  if(principal) principal.src = elemento.src;
+}
+
+const principal = document.getElementById("foto-principal");
+const lente = document.getElementById("zoom-lente");
+
+if(principal && lente){
+  principal.addEventListener("mousemove", function(e){
+    lente.style.display = "block";
+    const rect = principal.getBoundingClientRect();
+    const x = e.clientX - rect.left - lente.offsetWidth/2;
+    const y = e.clientY - rect.top - lente.offsetHeight/2;
+    lente.style.left = x + "px";
+    lente.style.top = y + "px";
+    lente.style.backgroundImage = `url(${principal.src})`;
+    lente.style.backgroundSize = (principal.width*2)+"px "+(principal.height*2)+"px";
+    lente.style.backgroundPosition = `-${x*2}px -${y*2}px`;
+  });
+
+  principal.addEventListener("mouseleave", function(){ lente.style.display="none"; });
+}
+
+const selectTamanho = document.getElementById('tamanho');
+const precoDiv = document.getElementById('preco');
+if(selectTamanho && precoDiv){
+  selectTamanho.addEventListener('change', ()=>{
+    const preco = selectTamanho.selectedOptions[0].getAttribute('data-preco');
+    precoDiv.textContent = `R$ ${preco}`;
+  });
+}
+
+const formCompra = document.getElementById('form-compra');
+if(formCompra){
+  formCompra.addEventListener('submit', function(e){
+    e.preventDefault();
+    const produto = formCompra.getAttribute('data-produto') || 'Produto';
+    const cor = document.getElementById('cor')?.value || '';
+    const tamanho = document.getElementById('tamanho')?.value || '';
+    const obs = document.getElementById('obs')?.value || '';
+    const preco = precoDiv?.textContent || '';
+    const mensagem = `Olá! Quero comprar o ${produto}.\nCor: ${cor}\nPreço: ${preco}\nObservações: ${obs}`;
+    const numeroWhats = "5527997196844";
+    window.open(`https://wa.me/${numeroWhats}?text=${encodeURIComponent(mensagem)}`, "_blank");
+  });
+}
+</script>
+
+<footer>
+<p>© 2025 MP bordados & personalizados - Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>

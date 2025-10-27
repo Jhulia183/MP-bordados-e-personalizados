@@ -1,0 +1,535 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Cabeçalho */
+header {
+  background: url('fundo.png') no-repeat center center/cover;
+  height: 250px;
+  position: relative;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Logo no canto esquerdo */
+header .logo {
+  position: absolute;
+  left: px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Logo no canto esquerdo */
+header .logo img {
+  height: 150px; /* logo bem grande no desktop */
+  object-fit: contain;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  header .logo img {
+    height: 120px; /* tamanho reduzido em tablets */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header .logo img {
+    height: 90px; /* tamanho menor em celulares */
+  }
+}
+
+/* Conteúdo centralizado */
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.center-content h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px;
+  color: #e2d9c0;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+  margin-bottom: 15px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+
+.nav-links a {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #e2d9c0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #3c4d1a;
+}
+
+
+.menu-toggle {
+  display: none;
+  font-size: 2em;
+  color: #e2d9c0;
+  cursor: pointer;
+}
+
+/* Slider */
+.slider {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 75vh;
+  object-fit: cover;
+}
+
+.slide-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.slide-controls span {
+  font-size: 2.5em;
+  color: #ffffff;
+  background: rgba(73, 119, 76, 0.5);
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Produtos */
+.produtos {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.produtos h2 {
+  margin-bottom: 40px;
+  font-size: 2em;
+  color: #000;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #e2d9c0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s;
+}
+
+.card p {
+ color: #2c6b43;
+ margin-bottom: 10px;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.tamanhos {
+  margin: 40px 20px;
+  text-align: center;
+}
+
+#tabela-tamanhos {
+  display: none; /* escondida por padrão */
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.tabela-tamanhos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.tabela-tamanhos th, .tabela-tamanhos td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.tabela-tamanhos th {
+  background-color: #3c4d1a;
+  color: #fff;
+}
+
+.tabela-tamanhos tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  .tabela-tamanhos th, .tabela-tamanhos td {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tabela-tamanhos {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+.btn {
+  display: inline-block;
+  background: #3c4d1a;
+  color: #e3ded0;
+  padding: 8px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: #3c4d1a;
+  color: #e3ded0;
+}
+
+.produto-detalhe {
+  display: flex;
+  gap: 40px;
+  margin: 50px;
+}
+
+
+
+
+.produto-galeria {
+  max-width: 500px;
+  position: relative;
+}
+
+/* Foto principal */
+.zoom-container {
+  position: relative;
+  width: 100%;
+}
+
+.zoom-container img {
+  width: 100%;
+  border: 1px solid #3c4d1a;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Lente de zoom */
+#zoom-lente {
+  position: absolute;
+  border: 2px solid #3c4d1a;
+  ;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: none;
+  /* aparece só no hover */
+  cursor: none;
+  pointer-events: none;
+}
+
+/* Miniaturas */
+.miniaturas {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.miniaturas img {
+  width: 80px;
+  cursor: pointer;
+  border: 1px solid #3c4d1a;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.miniaturas img:hover {
+  border-color: #3c4d1a;
+  ;
+}
+
+.produto-info {
+ background: #e2d9c0;
+  border-radius: 5px;
+  gap: 40px;
+  margin: 5px;
+  margin: center;
+  padding: 40px;
+  
+}
+
+
+
+.produto-info h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+
+
+}
+
+.produto-info h5{
+  font-size: 18PX;
+  margin-bottom: 10px;
+color: #1a5f33;
+
+}
+.produto-info p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.produto-info .preco {
+  font-size: 22px;
+  font-weight: bold;
+  color: #3c4d1a;
+  ;
+}
+
+/* Formulário */
+#form-compra {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+#form-compra label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#form-compra select,
+#form-compra textarea {
+  padding: 8px;
+  border: 1px solid #3c4d1a;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#form-compra textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+/* Botão Comprar */
+#form-compra .btn {
+  background-color: #3c4d1a;
+  color: #e2d9c0;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#form-compra .btn:hover {
+  background-color: #3c4d1a;
+  ;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  .produto-detalhe {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+/* Sobre Nós / Contato */
+.sobre {
+  padding: 60px 20px;
+  text-align: center;
+  background: #e2d9c0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  margin-bottom: 40px;
+  /* Adiciona espaço abaixo da seção */
+}
+
+.contato {
+  padding: 60px 20px;
+  text-align: center;
+  background: #e2d9c0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  /* margin-top: 40px;  alternativa ao margin-bottom acima */
+}
+
+.sobre h2,
+.contato h2 {
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-family: 'Bebas Neue', sans-serif;
+  color: #000;
+}
+
+/* WhatsApp */
+
+/* WhatsApp flutuante no lado esquerdo */
+.whatsapp-float {
+  position: fixed;
+ width: 55px;
+  height: 55px;
+  bottom: 25px;
+  left: 20px;
+ 
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 32px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.whatsapp-float img {
+  width: 40px;
+  height: 40px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 2px 2px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Instagram flutuante no lado direito */
+.instagram-float {
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  bottom: 100px;/* ajusta a altura — fica acima do WhatsApp */
+  left: 20px;
+  background-color: #E4405F; /* cor do Instagram */
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 28px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.instagram-float i {
+  line-height: 55px;
+}
+
+.instagram-float:hover {
+  transform: scale(1.1);
+  background-color: #c13584;
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #162012;
+  color: #e2d9c0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 250px;
+    right: 0;
+    background: #000;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    padding: 20px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
