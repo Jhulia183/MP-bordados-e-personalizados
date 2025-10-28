@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "name": "mp-bordados",
+  "public": "site novo",
+  "builds": [
+    { "src": "site novo/**/*.html", "use": "@vercel/static" },
+    { "src": "site novo/**/*.css", "use": "@vercel/static" },
+    { "src": "site novo/**/*.js", "use": "@vercel/static" },
+    { "src": "site novo/**/*.{png,jpg,jpeg,gif,svg,webp}", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "site novo/$1" }
+  ]
+}
